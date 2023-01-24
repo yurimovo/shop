@@ -24,6 +24,7 @@ const ProductCard = () => {
         </div>
         <div className='addToCartButtonContainer'>
           <Button className='addToCartButton' variant="contained" color='secondary'>В корзину</Button>
+          <div className="moreInfoButton">M</div>
         </div>
       </div>
     </div>

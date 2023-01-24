@@ -86,6 +86,7 @@
 
 .addToCartButtonContainer {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   margin-top: 10px;
 }
@@ -96,4 +97,22 @@
   height: 28px;
   width: 120px;
   border-radius: 4px;
+}
+
+.moreInfoButton {
+  display: flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  background-color: #7f28c4;
+  margin-left: 20px;
+}
+
+.moreInfoButton:hover {
+  cursor: pointer;
 }
