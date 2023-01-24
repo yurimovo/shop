@@ -1,0 +1,39 @@
+.mainMenu {
+  display: flex;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: #7f28c4;
+}
+
+.menu-large-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #7f28c4;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 20px;
+  color: #fff;
+  width: 100px;
+  height: 32px;
+  :hover {
+    background-color: #f2e14e;
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;
+    color: #374957;
+  }
+}
