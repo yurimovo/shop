@@ -1,0 +1,17 @@
+{
+  "name": "shop-backend",
+  "version": "0.0.1",
+  "description": "Shop backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuri Sheshikov <yuri22091983@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "prisma": "^4.9.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.9.0"
+  }
+}
