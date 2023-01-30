@@ -1,0 +1,10 @@
+-- CreateTable
+CREATE TABLE `Product` (
+    `Id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(100) NOT NULL DEFAULT '',
+    `price` DECIMAL NOT NULL DEFAULT 0,
+    `info` VARCHAR(500) NOT NULL DEFAULT '',
+
+    UNIQUE INDEX `Индекс 2`(`Id`),
+    PRIMARY KEY (`Id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

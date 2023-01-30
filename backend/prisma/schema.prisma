@@ -13,4 +13,20 @@ model User {
   username String @default("0") @db.VarChar(50)
   password String @default("0") @db.VarChar(50)
   name     String @default("0") @db.VarChar(50)
+
+  @@map("users")
+}
+
+model Product {
+  Id       Int    @id @unique(map: "Индекс 2") @default(autoincrement())
+  name     String @default("") @db.VarChar(100)
+  price    Decimal @default(0) @db.Decimal()
+  info     String @default("") @db.VarChar(500)
+
+  @@map("products")
+}
+
+model Cart {
+  Id       Int    @id @unique(map: "Индекс 2") @default(autoincrement())
+  
 }
