@@ -1,0 +1,55 @@
+.main-container {
+    margin: 5px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-header {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 32px;
+    color: #7f28c4;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    color: #7f28c4;
+    width: 340px;
+    height: 28px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #7f28c4;
+}
+
+.input-area {
+    display: flex;
+    text-align: left;
+    font-weight: 500;
+    font-size: 16px;
+    color: #7f28c4;
+    width: 340px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #7f28c4;
+}
+
+.save-button {
+    display: flex;
+    margin-top: 20px;
+}

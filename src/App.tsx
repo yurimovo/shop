@@ -5,6 +5,7 @@ import MainPage from './components/main-page/MainPage';
 import Header from "./components/header/Header";
 import Products from "./components/products/Products";
 import Promotions from "./components/promotions/Promotions";
+import NewProduct from './components/products/new-product/NewProduct';
 
 import "./main-container.scss";
 
@@ -16,6 +17,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/products/newProduct" element={<NewProduct />} />
                 <Route path="/promotions" element={<Promotions />} />
                 <Route path="*" element={<MainPage />} />
             </Routes>

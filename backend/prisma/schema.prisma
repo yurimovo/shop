@@ -28,6 +28,7 @@ model Product {
   name            String  @default("") @db.VarChar(100)
   price           Decimal @default(0) @db.Decimal()
   info            String  @default("") @db.VarChar(500)
+  quantity        Int     @default(0) @db.Int()
   cart            Cart?  @relation(fields: [cartId], references: [id])
   cartId          Int?
 }

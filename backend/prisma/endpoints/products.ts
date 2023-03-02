@@ -1,8 +1,8 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient()
-const app = express()
+const prisma = new PrismaClient();
+const app = express();
 
 app.post('/create-user', async (req, res) => {
     const { email, username, password, name } = req.body;
@@ -21,6 +21,8 @@ app.post('/create-user', async (req, res) => {
     }
 });
 
-const server = app.listen(3000)
+app.get('/')
 
-module.exports = prisma
+const server = app.listen(3000);
+
+export default prisma;

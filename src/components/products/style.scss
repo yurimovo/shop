@@ -5,4 +5,16 @@
 .addProductButton {
   width: 180px;
   margin-bottom: 20px;
+  a {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 20px;
+    color: #dfe4e7;
+  }
+}
+
+.addProductButtonText {
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
 }
