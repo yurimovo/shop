@@ -8,29 +8,33 @@ datasource db {
 }
 
 model User {
-  Id              Int     @id @unique(map: "Индекс 2") @default(autoincrement())
-  email           String  @default("0") @db.VarChar(50)
-  username        String  @default("0") @db.VarChar(50)
-  password        String  @default("0") @db.VarChar(50)
-  name            String  @default("0") @db.VarChar(50)
+  Id       Int    @id @unique(map: "Индекс 2") @default(autoincrement())
+  email    String @default("0") @db.VarChar(50)
+  username String @default("0") @db.VarChar(50)
+  password String @default("0") @db.VarChar(50)
+  name     String @default("0") @db.VarChar(50)
 
   @@map("users")
 }
 
 model Cart {
-  id         Int     @id @unique(map: "Индекс 2") @default(autoincrement())
-  products        Product[]
-  status          CartStatus
+  id       Int        @id @unique(map: "Индекс 2") @default(autoincrement())
+  status   CartStatus
+  products Product[]
 }
 
 model Product {
-  Id              Int     @id @unique(map: "Индекс 2") @default(autoincrement())
-  name            String  @default("") @db.VarChar(100)
-  price           Decimal @default(0) @db.Decimal()
-  info            String  @default("") @db.VarChar(500)
-  quantity        Int     @default(0) @db.Int()
-  cart            Cart?  @relation(fields: [cartId], references: [id])
-  cartId          Int?
+  Id       Int     @id @unique(map: "Индекс 2") @default(autoincrement())
+  name     String  @default("") @db.VarChar(100)
+  price    Decimal @default(0) @db.Decimal(10, 0)
+  info     String  @default("") @db.VarChar(500)
+  quantity Int     @default(0)
+  cartId   Int?
+  cart     Cart?   @relation(fields: [cartId], references: [id])
+
+  @@index([cartId], map: "Product_cartId_fkey")
+
+  @@map("products")
 }
 
 enum CartStatus {

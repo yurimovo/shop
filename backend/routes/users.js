@@ -1,5 +1,5 @@
-import express from 'express';
-import { PrismaClient } from '@prisma/client';
+const { PrismaClient } = require("@prisma/client");
+const express = require("express");
 
 const prisma = new PrismaClient();
 const app = express();
@@ -21,8 +21,9 @@ app.post('/create-user', async (req, res) => {
     }
 });
 
-app.get('/')
+app.get('/users-list', async (req, res) => {
+    const users = await prisma.user.findMany()
+    res.json(users)
+});
 
-const server = app.listen(3000);
-
-export default prisma;
+module.exports = app;
