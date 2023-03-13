@@ -8,29 +8,28 @@ import { createProduct } from '../../../utils/service-functions/products/createP
 import { Product } from '../../../types/products';
 
 const NewProduct = () => {
-  const { register, handleSubmit } = useForm();
+  const { 
+    register,
+    formState: {
+      errors,
+      isValid,
+    }, 
+    handleSubmit,
+    reset,
+  } = useForm({
+    mode: "onBlur",
+  });
   const [isSaving, setIsSaving] = useState<boolean>(false);
-  const [productData, setProductData] = useState<Product>({
-    productName: "",
-    productPrice: 0,
-    productInfo: "",
-    productQuantity: 0
-  })
 
-  const handleSave = async () => {
+  const handleSave = async (data: any) => {
     setIsSaving(true);
-    await createProduct({
-      productName: productData.productName,
-      productPrice: productData.productPrice,
-      productInfo: productData.productInfo,
-      productQuantity: productData.productQuantity
-    });
+    /* await createProduct({
+      data
+    }); */
+    console.log(data);
+    reset();
     setIsSaving(false);
   };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-
-  }
 
   return (
     <div className='main-container'>
@@ -45,15 +44,27 @@ const NewProduct = () => {
               className='input-field'
               size="small"
               tabIndex={0}
-              {...register("productName")}
+              {...register("productName", {
+                required: true,
+              })}
             />
+            {errors?.productName ? 
+              <div style={{height: 40}}>
+                {errors?.productName && <p>Error!</p>}
+              </div> : null}
             <TextField
               placeholder='Количество товара'
               className='input-field'
               size="small"
-              tabIndex={1}
-              {...register("productQuantity")}
+              tabIndex={0}
+              {...register("productQuantity", {
+                required: true,
+              })}
             />
+            {errors?.productQuantity ? 
+              <div style={{height: 40}}>
+                {errors?.productQuantity && <p>Error!</p>}
+              </div> : null}
             <TextField
               placeholder='Информация о продукте'
               rows={4}
@@ -61,29 +72,35 @@ const NewProduct = () => {
               size="small"
               multiline
               tabIndex={2}
-              {...register("productInfo")}
+              {...register("productInfo", {
+                required: true,
+              })}
             />
+            {errors?.productInfo ? 
+              <div style={{height: 40}}>
+                {errors?.productInfo && <p>Error!</p>}
+              </div> : null}
             <TextField
               placeholder='Стоимость'
               className='input-field'
               size="small"
               tabIndex={3}
-              {...register("productPrice")}
+              {...register("productPrice", {
+                required: true,
+              })}
             />
+            {errors?.productPrice ? 
+              <div style={{height: 40}}>
+                {errors?.productPrice && <p>Error!</p>}
+              </div> : null}
             <input
               type={"file"}
             />
-            <Button
-              variant="contained"
-              color="secondary"
-              size="large"
+            <input
               className="save-button"
               type='submit'
-              onClick={handleSave}
-              disabled={isSaving}
-            >
-              Сохранить
-            </Button>
+              disabled={!isValid || isSaving}
+            />
           </form>
         </div>
       </div>
