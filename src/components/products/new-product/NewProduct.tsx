@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import "../../../main-container.scss";
 import "./style.scss";
 import { Button, TextField } from '@mui/material';
@@ -16,16 +16,19 @@ const NewProduct = () => {
     }, 
     handleSubmit,
     reset,
-  } = useForm({
+  } = useForm<Product>({
     mode: "onBlur",
   });
   const [isSaving, setIsSaving] = useState<boolean>(false);
 
-  const handleSave = async (data: any) => {
+  const handleSave: SubmitHandler<Product> = async(data) => {
     setIsSaving(true);
-    /* await createProduct({
-      data
-    }); */
+    await createProduct({
+      productName: data.productName,
+      productPrice: data.productPrice,
+      productInfo: data.productInfo,
+      productQuantity: data.productQuantity,
+    })
     console.log(data);
     reset();
     setIsSaving(false);
